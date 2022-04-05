@@ -1,62 +1,61 @@
-
 import java.util.Scanner;
 
 public class EscapeFromTheForest {
 
 	public static void main(String[] args) {
 		Scanner tastiera = new Scanner(System.in);
-		System.out.println("*** Escape From The Forest ***");
+		System.out.println("*** Escape From The Forest ***");//0
 		System.out.println("Ciao, la tua avventura inizia in una grande foresta.");
 		System.out.println("Devi riuscire a raggiungere un luogo sicuro.");
 
 		boolean fine = true;
 		String direzione, bestie, riprovare1, fiume, riprovare2;
 		do {
-			System.out.println("Che direzione vuoi prendere? [N,S,O,E]");
+			System.out.println("Che direzione vuoi prendere? [N,S,O,E]");//1
 			direzione = tastiera.next().toUpperCase();
 			if (!direzione.equals("N") && !direzione.equals("O") && !direzione.equals("S") && !direzione.equals("E"))
 				System.out.println("Direzione inserita non valida, riprovare.");
-			else if (direzione.equals("E"))
+			else if (direzione.equals("E"))//3
 				do {
 					System.out.println("Delle bestie ti stanno inseguendo. Come reagisci? [Combatti, Scappa]");
 					bestie = tastiera.next().toLowerCase();
 					if (!bestie.equals("combatti") && !bestie.equals("scappa"))
 						System.out.println("Reazione inserita non valida, riporvare.");
 					else {
-						if (bestie.equals("combatti")) {
+						if (bestie.equals("combatti")) {//5
 							System.out.println("Sei stato sbranato, riprovare? [Si,No]");
 							riprovare1 = tastiera.next().toLowerCase();
 							do {
 								if (!riprovare1.equals("si") && !riprovare1.equals("no"))
 									System.out.println("Risposta inserita non valida, riprovare.");
-								else if (riprovare1.equals("no"))
+								else if (riprovare1.equals("no"))//1000
 									fine = true;
 								else if (riprovare1.equals("si"))
 									fine = false;
 							} while (!riprovare1.equals("si") && !riprovare1.equals("no"));
-						} else if (bestie.equals("scappa")) {
+						} else if (bestie.equals("scappa")) {//6
 							System.out.println("Sei riuscito a metterti al sicuro. Hai vinto.");
-							fine = true;
+							fine = true;//1000
 						}
 					}
 				} while (!bestie.equals("combatti") && !bestie.equals("scappa"));
-			else if (direzione.equals("N") || direzione.equals("O") || direzione.equals("S"))
+			else if (direzione.equals("N") || direzione.equals("O") || direzione.equals("S"))//2
 				do {
 					System.out.println("Hai raggiunto un fiume, vuoi attraversarlo? [Attraversa, Dietrofront]");
 					fiume = tastiera.next();
 					if (!fiume.equalsIgnoreCase("attraversa") && !fiume.equalsIgnoreCase("dietrofront"))
 						System.out.println("Azione inserita non valida, riprovare.");
 					else {
-						if (fiume.equalsIgnoreCase("dietrofront"))
+						if (fiume.equalsIgnoreCase("dietrofront"))//1
 							fine = false;
-						else if (fiume.equalsIgnoreCase("attraversa")) {
+						else if (fiume.equalsIgnoreCase("attraversa")) {//4
 							System.out.println("Sei annegato, riprovare? [Si,No]");
 							riprovare2 = tastiera.next().toLowerCase();
 							do {
 								if (!riprovare2.equals("si") && !riprovare2.equals("no"))
 									System.out.println("Risposta inserita non valida, riprovare.");
 								else if (riprovare2.equals("no"))
-									fine = true;
+									fine = true;//1000
 								else if (riprovare2.equals("si"))
 									fine = false;
 							} while (!riprovare2.equals("si") && !riprovare2.equals("no"));
@@ -71,4 +70,3 @@ public class EscapeFromTheForest {
 		tastiera.close();
 	}
 }
-
